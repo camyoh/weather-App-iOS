@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class FirstScreen: UIViewController {
+class FirstScreen: UIViewController, CLLocationManagerDelegate {
     private let fontSize = FontSizes()
     private let distanceContraints = DistancesConstrainst()
     
@@ -24,7 +25,11 @@ class FirstScreen: UIViewController {
     private var geoCoordinatesTitleLabel = UILabel()
     private var geoCoordinatesLabel = UILabel()
     private var backgroundImage = UIImageView()
-
+    
+    private let locationManager = CLLocationManager()
+    private let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
+    private let APP_ID = "ed90b7794010d365a012488ca2857878"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +47,12 @@ class FirstScreen: UIViewController {
         setupGeoCoordinatesLabel()
 
         setConstraints()
+        
+        //set up the location manager
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     private func setupCityNameLabel(){
@@ -195,6 +206,30 @@ class FirstScreen: UIViewController {
         windTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: distanceContraints.trailingDistanceData).isActive = true
 
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        if location.horizontalAccuracy > 0{
+            locationManager.stopUpdatingLocation()
+            print("long: \(location.coordinate.longitude), lat: \(location.coordinate.latitude)")
+            
+            let longitude = location.coordinate.longitude
+            let latitude = location.coordinate.latitude
+            let shortLongitude = Double(round(100 * longitude)/100)
+            let shortLatitude = Double(round(100 * latitude)/100)
+            
+            let params: [String:String] = ["lat" : String(latitude), "lon" : String(longitude), "appid" : APP_ID]
+            
+            geoCoordinatesLabel.text = "Lat: \(shortLatitude), Long: \(shortLongitude)"
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        //TODO: mostrar un error
+    }
+    
 }
 
 struct FontSizes {
@@ -211,3 +246,5 @@ struct DistancesConstrainst {
     let leadingDistanceData = CGFloat(20)
     let trailingDistanceData = CGFloat(20)
 }
+
+
