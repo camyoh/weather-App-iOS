@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		AC9169302256485E0045E895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91692F2256485E0045E895 /* AppDelegate.swift */; };
-		AC9169322256485E0045E895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9169312256485E0045E895 /* ViewController.swift */; };
-		AC9169352256485E0045E895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9169332256485E0045E895 /* Main.storyboard */; };
 		AC9169372256485E0045E895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9169362256485E0045E895 /* Assets.xcassets */; };
 		AC91693A2256485E0045E895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9169382256485E0045E895 /* LaunchScreen.storyboard */; };
+		AC916942225650730045E895 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC916941225650730045E895 /* FirstScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC91692C2256485E0045E895 /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91692F2256485E0045E895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC9169312256485E0045E895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC9169342256485E0045E895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC9169362256485E0045E895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9169392256485E0045E895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91693B2256485E0045E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC916941225650730045E895 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +52,29 @@
 		AC91692E2256485E0045E895 /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC916944225651FE0045E895 /* Model */,
+				AC916943225651EC0045E895 /* View */,
 				AC91692F2256485E0045E895 /* AppDelegate.swift */,
-				AC9169312256485E0045E895 /* ViewController.swift */,
-				AC9169332256485E0045E895 /* Main.storyboard */,
+				AC916941225650730045E895 /* FirstScreen.swift */,
 				AC9169362256485E0045E895 /* Assets.xcassets */,
 				AC9169382256485E0045E895 /* LaunchScreen.storyboard */,
 				AC91693B2256485E0045E895 /* Info.plist */,
 			);
 			path = weatherApp;
+			sourceTree = "<group>";
+		};
+		AC916943225651EC0045E895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC916944225651FE0045E895 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +137,6 @@
 			files = (
 				AC91693A2256485E0045E895 /* LaunchScreen.storyboard in Resources */,
 				AC9169372256485E0045E895 /* Assets.xcassets in Resources */,
-				AC9169352256485E0045E895 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC9169322256485E0045E895 /* ViewController.swift in Sources */,
+				AC916942225650730045E895 /* FirstScreen.swift in Sources */,
 				AC9169302256485E0045E895 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC9169332256485E0045E895 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC9169342256485E0045E895 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC9169382256485E0045E895 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
