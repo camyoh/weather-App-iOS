@@ -201,8 +201,8 @@ struct FontSizes {
     let cityFontSize = CGFloat(30)
     let cloudinessFontSize = CGFloat(13)
     let temperatureFontSize = CGFloat(80)
-    let dataFontSize = CGFloat(30)
-    let dataTitleFontSize = CGFloat(14)
+    let dataFontSize = CGFloat(25)
+    let dataTitleFontSize = CGFloat(12)
 }
 
 struct DistancesConstrainst {
