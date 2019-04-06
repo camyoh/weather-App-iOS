@@ -11,6 +11,8 @@
 		AC9169372256485E0045E895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9169362256485E0045E895 /* Assets.xcassets */; };
 		AC91693A2256485E0045E895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9169382256485E0045E895 /* LaunchScreen.storyboard */; };
 		AC916942225650730045E895 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC916941225650730045E895 /* FirstScreen.swift */; };
+		AC9169462257F1970045E895 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9169452257F1970045E895 /* ApiManager.swift */; };
+		AC9169482257F1F10045E895 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9169472257F1F10045E895 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		AC9169392256485E0045E895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91693B2256485E0045E895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC916941225650730045E895 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		AC9169452257F1970045E895 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		AC9169472257F1F10045E895 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		AC916944225651FE0045E895 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC9169452257F1970045E895 /* ApiManager.swift */,
+				AC9169472257F1F10045E895 /* CurrentWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC916942225650730045E895 /* FirstScreen.swift in Sources */,
+				AC9169462257F1970045E895 /* ApiManager.swift in Sources */,
+				AC9169482257F1F10045E895 /* CurrentWeather.swift in Sources */,
 				AC9169302256485E0045E895 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

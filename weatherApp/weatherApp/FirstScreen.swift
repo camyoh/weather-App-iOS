@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 
 class FirstScreen: UIViewController, CLLocationManagerDelegate {
+    private let apiManager = ApiManager()
+    
     private let fontSize = FontSizes()
     private let distanceContraints = DistancesConstrainst()
     
@@ -27,8 +29,11 @@ class FirstScreen: UIViewController, CLLocationManagerDelegate {
     private var backgroundImage = UIImageView()
     
     private let locationManager = CLLocationManager()
-    private let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
+    private let WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?q=Bogota&appid=ed90b7794010d365a012488ca2857878"
     private let APP_ID = "ed90b7794010d365a012488ca2857878"
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,14 @@ class FirstScreen: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        
+        //request
+        getWeather()
+    }
+    
+    private func updatingData(){
+        
     }
     
     private func setupCityNameLabel(){
@@ -230,14 +243,43 @@ class FirstScreen: UIViewController, CLLocationManagerDelegate {
         //TODO: mostrar un error
     }
     
+    private func getWeather() {
+        apiManager.getWeather() { (weather, error) in
+            if let error = error {
+                print("Get weather error: \(error.localizedDescription)")
+                return
+            }
+            guard let weather = weather  else { return }
+            print("Current Weather Object:")
+            //            print(weather)
+            DispatchQueue.main.async {
+                self.cityNameLabel.text = String(weather.name)
+                self.cloudinessLabel.text = String(weather.clouds.all)
+                self.temperatureLabel.text = "\(Int(weather.main.temp!)) ºK"
+                self.windLabel.text = "\(weather.wind.speed) m/s"
+                self.pressureLabel.text = "\(Int(weather.main.pressure!)) hPA"
+                self.humidityLabel.text = "\(Int(weather.main.humidity))%"
+            }
+            
+            print("Ciudad: \(weather.name)")
+            print("Clouds: \(weather.clouds.all)")
+            print("Temperature: \(weather.main.temp!)ºK")
+            print("Wind Speed: \(weather.wind.speed)m/s")
+            print("Pressure: \(weather.main.pressure!)")
+            print("Humidity: \(weather.main.humidity)")
+        }
+    }
+
+    
+    
 }
 
 struct FontSizes {
     let cityFontSize = CGFloat(30)
     let cloudinessFontSize = CGFloat(13)
     let temperatureFontSize = CGFloat(80)
-    let dataFontSize = CGFloat(30)
-    let dataTitleFontSize = CGFloat(14)
+    let dataFontSize = CGFloat(25)
+    let dataTitleFontSize = CGFloat(12)
 }
 
 struct DistancesConstrainst {
