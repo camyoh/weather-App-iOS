@@ -9,7 +9,7 @@
 import Foundation
 
 struct ApiManager {
-    let stubDataURL = "https://api.openweathermap.org/data/2.5/weather?q=Bogota&appid=ed90b7794010d365a012488ca2857878"
+    let stubDataURL = "https://api.openweathermap.org/data/2.5/weather?lat=4.60971&lon=-74.081749&appid=ed90b7794010d365a012488ca2857878"
     func getWeather(completion: @escaping (_ weather: CurrentWeather?, _ error: Error?) -> Void) {
         getJSONFromURL(urlString: stubDataURL) { (data, error) in
             guard let data = data, error == nil else {
@@ -25,7 +25,6 @@ struct ApiManager {
             })
         }
     }
-    
 }
 
 extension ApiManager {

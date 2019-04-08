@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class FirstScreen: UIViewController, CLLocationManagerDelegate {
+class DetailScreenViewController: UIViewController, CLLocationManagerDelegate {
     private let apiManager = ApiManager()
     
     private let fontSize = FontSizes()
@@ -73,7 +73,6 @@ class FirstScreen: UIViewController, CLLocationManagerDelegate {
         cityNameLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cityNameLabel.font = UIFont.systemFont(ofSize: fontSize.cityFontSize)
         backgroundImage.addSubview(cityNameLabel)
-//        setConstraints()
     }
     
     private func setupCloudinessLabel(){
@@ -231,7 +230,7 @@ class FirstScreen: UIViewController, CLLocationManagerDelegate {
             let shortLongitude = Double(round(100 * longitude)/100)
             let shortLatitude = Double(round(100 * latitude)/100)
             
-            let params: [String:String] = ["lat" : String(latitude), "lon" : String(longitude), "appid" : APP_ID]
+//            let params: [String:String] = ["lat" : String(latitude), "lon" : String(longitude), "appid" : APP_ID]
             
             geoCoordinatesLabel.text = "Lat: \(shortLatitude), Long: \(shortLongitude)"
         }
